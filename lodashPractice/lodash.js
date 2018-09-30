@@ -1,3 +1,5 @@
+var _ = require ('lodash');
+
 var customers = [
   {
     id: 1,
@@ -76,6 +78,19 @@ var customers = [
 
 //CODE HERE
 
+function emails(arr){
+  let emailList= []
+  arr.map( obj => {
+      emailList.push(obj.email);
+  } )
+  return emailList;
+}
+
+emails(customers);
+
+var list= _.map(customers, 'email');
+
+console.log(list)
 
 
 var inviteList1 = ["Ed", "Fanny", "Mildred", "Alice", "James"];
@@ -84,6 +99,12 @@ var inviteList2 = ["Jake", "Mildred", "Jimmy", "Ed", "Franklin"];
 // Uh oh! We are having a party and two invite lists were created.
 // Create a duplicate-free list of the people we want at the party without lodash's _.union().
 // Then create another list that removes all duplicates using _.union().
+
+var guestList = _.union(inviteList1, inviteList2);
+
+console.log(guestList)
+
+
 
 var friendsOfJim = [
   "Tom",
@@ -106,6 +127,11 @@ var friendsOfBetty = [
   "Tom",
   "Nancy"
 ];
+
+
+var mutualfriends=_.intersection(friendsOfBetty, friendsOfJim);
+
+console.log(mutualfriends);
 
 // Jim and Betty are having a party, but they only want to invite mutual friends.
 // Create an array of mutual friends. First without using lodash.
@@ -148,3 +174,7 @@ var purchases = [
 
 // First, group the purchases by company without lodash
 // then do it again using _.groupBy()
+
+var companyGroups= _.groupBy(purchases, 'sort');
+
+console.log(companyGroups);
