@@ -175,6 +175,6 @@ var purchases = [
 // First, group the purchases by company without lodash
 // then do it again using _.groupBy()
 
-var companyGroups= _.groupBy(purchases, 'sort');
+var companyGroups= _.groupBy(purchases, 'company');
 
 console.log(companyGroups);
